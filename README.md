@@ -288,7 +288,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- **Your Name** - *Lead Developer* - [@yourusername](https://github.com/yourusername)
+- **G Ganesh** - *Lead Developer* - [@AA1-34-Ganesh](https://github.com/AA1-34-Ganesh)
 
 ---
 
@@ -299,15 +299,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Upstash for serverless Redis
 - The open-source community
 
----
 
-## 📞 Support
-
-- **Issues**: [GitHub Issues](https://github.com/yourusername/revaluate/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/revaluate/discussions)
-- **Email**: support@revaluate.com
-
----
 
 <div align="center">
   
