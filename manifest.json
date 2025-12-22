@@ -1,0 +1,62 @@
+{
+    "name": "ReValuate - Smart Exam Revaluation System",
+    "short_name": "ReValuate",
+    "start_url": "/",
+    "display": "standalone",
+    "description": "AI-Powered Exam Revaluation System ensuring fair and transparent grading.",
+    "lang": "en",
+    "dir": "auto",
+    "theme_color": "#000000",
+    "background_color": "#000000",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/icons/home.jpeg",
+            "sizes": "1280x720",
+            "type": "image/jpeg",
+            "description": "Home Page showing the landing screen",
+            "form_factor": "wide"
+        },
+        {
+            "src": "/icons/student_dashboard.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "description": "Student Dashboard for tracking exams",
+            "form_factor": "wide"
+        },
+        {
+            "src": "/icons/teacher.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "description": "Teacher Dashboard for grading",
+            "form_factor": "wide"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Track Status",
+            "url": "/track-status",
+            "description": "Track your revaluation application status"
+        },
+        {
+            "name": "Student Login",
+            "url": "/login",
+            "description": "Login to the student portal"
+        }
+    ],
+    "prefer_related_applications": false
+}

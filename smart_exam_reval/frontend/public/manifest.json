@@ -1,0 +1,45 @@
+{
+    "name": "ReValuate - AI Exam Revaluation",
+    "short_name": "ReValuate",
+    "description": "AI-powered exam revaluation system ensuring fair and transparent grading with Gemini Vision.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#7c3aed",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "/icons/icon-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/icons/icon-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/icons/home.jpeg",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Home Page"
+        },
+        {
+            "src": "/icons/student_dashboard.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Student Dashboard"
+        },
+        {
+            "src": "/icons/teacher.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Teacher Dashboard"
+        }
+    ]
+}

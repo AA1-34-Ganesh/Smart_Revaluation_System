@@ -1,0 +1,45 @@
+version: '3'
+
+tasks:
+  install:
+    desc: Install all dependencies (Root, Backend, Frontend)
+    cmds:
+      - npm install
+      - cd backend && npm install
+      - cd frontend && npm install
+    silent: false
+
+  d:
+    desc: Shortcut for dev
+    cmds:
+      - task: dev
+
+  dev:
+    desc: Start the full development stack (Backend, Worker, Frontend)
+    # Uses concurrently from the root or parallel task execution
+    cmds:
+      - npx concurrently "npm run dev --prefix backend" "npm run worker --prefix backend" "npm run dev --prefix frontend"
+    ignore_error: true
+
+  test:
+    desc: Run all tests
+    cmds:
+      - cd backend && npm test
+      # Frontend tests can be added here
+      # - cd frontend && npm test
+
+  lint:
+    desc: Lint codebases
+    cmds:
+      - cd backend && npm run lint --if-present
+      - cd frontend && npm run lint --if-present
+
+  db:reset:
+    desc: Reset Database (Requires Supabase CLI)
+    cmds:
+      - npx supabase db reset
+
+  build:
+    desc: Build frontend for production
+    cmds:
+      - cd frontend && npm run build

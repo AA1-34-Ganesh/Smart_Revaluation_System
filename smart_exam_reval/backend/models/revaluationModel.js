@@ -1,0 +1,89 @@
+const pool = require("../config/db");
+
+// FIX: Use subjectId (Int) instead of subject_name (String)
+exports.createRequest = async (studentId, subjectId, teacherId) => {
+  const query = `
+    INSERT INTO revaluation_requests (student_id, subject_id, teacher_id, status, payment_status)
+    VALUES ($1, $2, $3, 'pending', 'unpaid')
+    RETURNING *;
+  `;
+  // Note: We default status to 'pending' and payment to 'unpaid'
+  const { rows } = await pool.query(query, [studentId, subjectId, teacherId]);
+  return rows[0];
+};
+
+exports.updateStatus = async (requestId, status) => {
+  const query = `
+    UPDATE revaluation_requests
+    SET status=$1, updated_at=NOW()
+    WHERE id=$2
+    RETURNING *;
+  `;
+  const { rows } = await pool.query(query, [status, requestId]);
+  return rows[0];
+};
+
+exports.publishResult = async (requestId, status, teacherNotes) => {
+  const query = `
+      UPDATE revaluation_requests
+      SET status=$1, teacher_notes=$2, updated_at=NOW()
+      WHERE id=$3
+      RETURNING *;
+    `;
+  const { rows } = await pool.query(query, [status, teacherNotes, requestId]);
+  return rows[0];
+};
+
+exports.updatePayment = async (requestId, paymentStatus) => {
+  const query = `
+    UPDATE revaluation_requests
+    SET payment_status=$1, updated_at=NOW()
+    WHERE id=$2
+    RETURNING *;
+  `;
+  const { rows } = await pool.query(query, [paymentStatus, requestId]);
+  return rows[0];
+};
+
+// FIX: This function was causing the Dashboard 500 Error
+exports.getRequestsByStudent = async (studentId) => {
+  const query = `
+    SELECT 
+      r.id, 
+      r.status, 
+      r.payment_status, 
+      r.created_at,
+      r.ocr_data,       -- <--- Added
+      r.ai_feedback,    -- <--- Added
+      m.subject_name,    -- <--- We get the name from the 'marks' table
+      m.subject_code,
+      m.score AS original_score
+    FROM revaluation_requests r
+    JOIN marks m ON r.subject_id = m.id   -- <--- The Critical Join
+    WHERE r.student_id=$1
+    ORDER BY r.created_at DESC;
+  `;
+  const { rows } = await pool.query(query, [studentId]);
+  return rows;
+};
+
+// Added Helper: Check if request exists to prevent duplicates
+exports.checkExistingRequest = async (studentId, subjectId) => {
+  const query = `
+    SELECT * FROM revaluation_requests 
+    WHERE student_id = $1 AND subject_id = $2
+  `;
+  const { rows } = await pool.query(query, [studentId, subjectId]);
+  return rows[0];
+};
+
+exports.addAppeal = async (requestId, reason) => {
+  const query = `
+      UPDATE revaluation_requests 
+      SET status = 'appealed', appeal_reason = $1, updated_at = NOW()
+      WHERE id = $2
+      RETURNING *;
+    `;
+  const { rows } = await pool.query(query, [reason, requestId]);
+  return rows[0];
+};

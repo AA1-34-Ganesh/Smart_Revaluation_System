@@ -1,0 +1,4 @@
+reg_no,subject_code,subject_name,score,grade,status
+REG101,CS101,Computer Science,35,F,Fail
+REG101,ENG101,English,85,A,Pass
+REG102,CS101,Computer Science,90,A,Pass

@@ -1,0 +1,6 @@
+{
+  "*.{js,jsx,ts,tsx}": [
+    "npm run lint --if-present",
+    "npm test --if-present"
+  ]
+}
