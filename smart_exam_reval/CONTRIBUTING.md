@@ -5,6 +5,26 @@ First off, thanks for taking the time to contribute! 🎉
 ReValuate is an AI-powered Exam Revaluation System that helps students get fair, transparent grading using Gemini Vision AI. We welcome contributions from the community.
 
 ---
+## 🏗️ Deployment Note for Contributors
+
+**Why is the Live Demo incomplete?**
+The codebase includes a fully functional Redis + BullMQ background worker system for AI processing. However, we have **intentionally not deployed the Worker Service** to the live production environment to avoid monthly cloud infrastructure costs.
+![Payment Proof For Worker](/images_of_website/Payment_proof.png)
+
+### 🧪 How to Test AI Features (Local Development)
+Since the worker is offline in production, you **must run the project locally** to see the AI grading in action.
+
+1.  **Start Redis** (Ensure your Upstash or local Redis is running).
+2.  **Start the Worker:**
+    ```bash
+    cd backend
+    npm run worker
+    ```
+3.  **Start the API & Frontend:**
+    ```bash
+    npm run dev
+    ```
+ 
 
 ##  Current Subjects
 The system currently supports the following standard subjects. If adding a new one, ensure you update the Database ENUMs and Frontend Selectors.
@@ -107,33 +127,10 @@ NODE_ENV=development
 - **Supabase**: Create project → Settings → API → Copy URL & Anon Key
 - **Upstash**: Create Redis database → Copy REST URL
 - **Gemini**: Visit [Google AI Studio](https://ai.google.dev/) → Get API Key
-- **Razorpay**: Sign up → Settings → API Keys (use test mode)
-
+- **Stripe**: Sign up → Settings → API Keys (use test mode)
 ---
 
-### Step 3: Database Migration
-
-Run the SQL scripts in your Supabase SQL Editor:
-
-```bash
-# Option 1: Manual (Recommended for first-time setup)
-1. Open Supabase Dashboard → SQL Editor
-2. Copy contents of backend/migrations/001_initial_schema.sql
-3. Execute the script
-
-# Option 2: CLI (If you have Supabase CLI installed)
-supabase db push
-```
-
-**Tables Created:**
-- `users` (students, teachers, admins)
-- `marks` (original exam scores)
-- `revaluation_requests` (central workflow table)
-- `answer_keys` (teacher-uploaded model answers)
-
----
-
-### Step 4: Frontend Setup
+### Step 3: Frontend Setup
 
 ```bash
 cd ../frontend
@@ -154,7 +151,7 @@ VITE_SUPABASE_ANON_KEY=[YOUR_ANON_KEY]
 
 ---
 
-### Step 5: Run Services
+### Step 4: Run Services
 
 **You need THREE terminals running simultaneously:**
 

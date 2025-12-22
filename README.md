@@ -14,6 +14,17 @@
 
 **ReValuate** is an advanced EdTech platform that transforms the traditional exam revaluation process using AI-powered analysis. The system provides transparent, fast, and fair reassessment of student answer scripts through a combination of Google Gemini AI vision models and expert faculty review.
 
+## ☁️ Deployment Status
+
+| Component | Status | Hosting | Note |
+| :--- | :--- | :--- | :--- |
+| **Frontend** | 🟢 **[Live Link](https://revaluate-web.onrender.com)** | Render Static Site | Fully Functional |
+| **Backend API** | 🟢 Online | Render Web Service | Fully Functional |
+| **Database** | 🟢 Online | Supabase | Fully Functional |
+| **AI Worker** | 🔴 **Offline** | Not Deployed | **Skipped to save costs** |
+
+
+
 ### Key Innovation
 Unlike manual revaluation systems that take weeks, ReValuate delivers:
 - ✅ **AI-Graded Feedback in Seconds** using Google Gemini 1.5 Flash Vision
@@ -51,6 +62,17 @@ Unlike manual revaluation systems that take weeks, ReValuate delivers:
 - **Audit Trail**: Complete history of all actions and status changes
 
 ---
+## 📸 Gallery & Proof of Work
+
+### 📱 Responsive Dashboard
+![Student Dashboard](./images_of_website/Student_portal.jpeg)
+
+![Teacher Dashboard](./images_of_website/Teacher_Portal.jpeg)
+
+![AI Evaluation Report In Locally](./images_of_website/AI_report.jpeg)
+
+![AI Evaluation Report In Locally](./images_of_website/Providing_weak_strong_points.jpeg)
+
 
 ## 🏗️ Tech Stack
 
@@ -78,7 +100,7 @@ Unlike manual revaluation systems that take weeks, ReValuate delivers:
 ### Infrastructure
 - **Supabase** (Database + Auth)
 - **Upstash Redis** (Serverless Redis)
-- **Razorpay** (Payment gateway)
+- **Stripe** (Payment gateway)
 
 ---
 
@@ -135,7 +157,7 @@ graph TB
     API -->|Store| DB[(PostgreSQL)]
     API -->|Queue Jobs| Redis[(Redis/BullMQ)]
     
-    Redis -->|Consume| Workers[Background Workers]
+    Redis -.->|Wait for Consumer| Workers[Background Workers]
     Workers -->|OCR| OCRWorker[OCR Processor]
     Workers -->|Embeddings| EmbedWorker[Embedding Processor]
     Workers -->|Grading| GradeWorker[Grading Processor]
@@ -150,11 +172,9 @@ graph TB
     style Gemini fill:#4285F4,stroke:#fff,color:#fff
     style Redis fill:#DC382D,stroke:#fff,color:#fff
     style DB fill:#4169E1,stroke:#fff,color:#fff
+    style Workers fill:#999,stroke:#333,stroke-dasharray: 5 5
 ```
 
-**For detailed architecture, see:** [docs/technical/ARCHITECTURE.md](docs/technical/ARCHITECTURE.md)
-
----
 
 ## 📁 Project Structure
 
@@ -190,20 +210,8 @@ revaluate/
 
 ## 📖 Documentation
 
-### Technical Documentation
-- [**System Architecture**](docs/technical/ARCHITECTURE.md) - Flow diagrams, service breakdown
-- [**Database Schema**](docs/technical/DATABASE_SCHEMA.md) - ER diagrams, relationships, enums
-- [**API Reference**](docs/technical/API_REFERENCE.md) - Complete endpoint documentation
+- [**Database Schema**](docs/DATABASE_SCHEMA.md) - ER diagrams, relationships, enums
 
-### User Manuals
-- [**Teacher Guide**](docs/manuals/TEACHER_GUIDE.md) - Step-by-step workflow instructions
-- [**Student Guide**](docs/manuals/STUDENT_GUIDE.md) - How to apply and track requests
-
-### Operations
-- [**Deployment Guide**](docs/ops/DEPLOYMENT.md) - Environment setup, worker configuration
-- [**Troubleshooting**](docs/ops/DEPLOYMENT.md#troubleshooting) - Common errors and solutions
-
----
 
 ## 🔒 Security Features
 
