@@ -1,4 +1,4 @@
-# 🎓 ReValuate: AI-Powered Exam Transparency
+#  ReValuate: AI-Powered Exam Transparency
 
 > **Revolutionizing Educational Assessment with Artificial Intelligence**
 
@@ -10,11 +10,11 @@
 
 ---
 
-## 🌟 Overview
+##  Overview
 
 **ReValuate** is an advanced EdTech platform that transforms the traditional exam revaluation process using AI-powered analysis. The system provides transparent, fast, and fair reassessment of student answer scripts through a combination of Google Gemini AI vision models and expert faculty review.
 
-## ☁️ Deployment Status
+##  Deployment Status
 
 | Component | Status | Hosting | Note |
 | :--- | :--- | :--- | :--- |
@@ -46,7 +46,7 @@ Unlike manual revaluation systems that take weeks, ReValuate delivers:
 - **Multi-Page Upload Support**: Submit complete answer scripts (converted from PDF)
 - **Transparent Pricing**: Fixed fee per subject with instant payment confirmation
 
-### For Teachers 👨‍🏫
+### For Teachers 
 - **Smart Dashboard**: Dynamic request assignment based on subject specialization
 - **3-Action Workflow**:
   - 🟣 **Purple (Grade)**: Upload scripts, trigger AI analysis, review & publish
@@ -74,7 +74,7 @@ Unlike manual revaluation systems that take weeks, ReValuate delivers:
 ![AI Evaluation Report In Locally](./images_of_website/Providing_weak_strong_points.jpeg)
 
 
-## 🏗️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 - **React 18** with Vite (Lightning-fast dev server)
@@ -104,7 +104,7 @@ Unlike manual revaluation systems that take weeks, ReValuate delivers:
 
 ---
 
-## ⚡ Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Node.js 20+ and npm
@@ -176,7 +176,7 @@ graph TB
 ```
 
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 revaluate/
@@ -213,18 +213,18 @@ revaluate/
 - [**Database Schema**](docs/DATABASE_SCHEMA.md) - ER diagrams, relationships, enums
 
 
-## 🔒 Security Features
+## Security Features
 
 - **JWT Authentication**: Secure token-based sessions
 - **Role-Based Access Control**: Student/Teacher/Admin separation
 - **SQL Injection Prevention**: Parameterized queries throughout
 - **File Upload Validation**: Type checking, size limits
-- **Payment Verification**: Server-side Razorpay signature validation
+- **Payment Verification**: Server-side stripe signature validation
 - **Environment Isolation**: Secrets stored in `.env` files
 
 ---
 
-## 🎯 Key Workflows
+##  Key Workflows
 
 ### Student Revaluation Request
 ```mermaid
@@ -251,7 +251,7 @@ sequenceDiagram
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Run backend tests
@@ -268,7 +268,7 @@ npm run test:e2e
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
@@ -280,19 +280,18 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👥 Authors
+##  Authors
 
 - **G Ganesh** - *Lead Developer* - [@AA1-34-Ganesh](https://github.com/AA1-34-Ganesh)
 
 ---
-
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Google Gemini AI for advanced vision models
 - Supabase for database infrastructure
