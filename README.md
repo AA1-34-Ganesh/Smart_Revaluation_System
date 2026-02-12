@@ -147,7 +147,7 @@ Visit `http://localhost:5173` to access the application.
 
 ---
 
-## 📊 System Architecture
+##  System Architecture
 
 ```mermaid
 graph TB
@@ -210,7 +210,7 @@ revaluate/
 
 ## 📖 Documentation
 
-- [**Database Schema**](docs/DATABASE_SCHEMA.md) - ER diagrams, relationships, enums
+- [**Database Schema**](blob/main/smart_exam_reval/docs/DATABASE_SCHEMA.md) - ER diagrams, relationships, enums
 
 
 ## Security Features
